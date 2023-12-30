@@ -1,7 +1,7 @@
 import React,{useState} from 'react'
-import bgImage from '../../../assets/images/instant-settlement-bg.svg';
-import hoverBgImage from '../../../assets/images/instantsettlement-hoverbg.svg';
-import cardImage from '../../../assets/images/razorpayXicon.svg';
+import bgImage from '../../../assets/images/cardbackground.svg';
+import hoverBgImage from '../../../assets/images/cardbghover.svg';
+import cardImage from '../../../assets/images/cardimage.svg';
 
 
 const FeatureCard = ({title,desc}) => {
