@@ -1,5 +1,4 @@
 import React from "react";
-import computer from "../../../assets/computer.png";
 import { TypeAnimation } from "react-type-animation";
 
 
