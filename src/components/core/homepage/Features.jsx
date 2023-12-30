@@ -1,6 +1,6 @@
 
 import React from 'react';
-import dottedrows from "../../../assets/images/feature-section1-dottedrows.png"
+import dottedrows from "../../../assets/images/dottedrows.png"
 import FeatureCard from './FeatureCard';
 
 const Features = () => {
