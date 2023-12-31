@@ -16,7 +16,7 @@ exports.auth = async(req,res,next)=>{
          }
 
          try{
-            const decode = await jwt.sign(token , process.env.SECRET_KEY);
+            const decode = await jwt.sign(token , process.env.JWT_SECRET);
             req.user = decode;
 
          }catch(error)
