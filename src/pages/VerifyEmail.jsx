@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react'
 import {useSelector} from "react-redux" 
 import {useDispatch} from "react-redux"
 import {useNavigate} from "react-router-dom"
-// import { sendOtp } from '../services/operations/authApi'
-// import { signUp } from '../services/operations/authApi'
+import { sendOtp } from '../services/operations/authApi.js'
+import { signUp } from '../services/operations/authApi.js'
 import {RxCountdownTimer} from "react-icons/rx"
 import {Link} from "react-router-dom"
 import OtpInput from "react-otp-input"
