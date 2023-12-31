@@ -8,6 +8,7 @@ export default defineConfig({
   //   chunkSizeWarningLimit: 3500, // Set a higher value of chunk
   // },
   build: {
+    outDir:"dist",
     chunkSizeWarningLimit: 3000,
     rollupOptions: {
         output:{
