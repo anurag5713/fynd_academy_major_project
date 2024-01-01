@@ -6,11 +6,6 @@ import { updateDisplayPicture } from "../../../../services/operations/settingApi
 
 
 export default function ChangeProfilePicture() {
-  // const user={
-  //   firstName:"anurag",
-  //   lastName:"yadav",
-
-  // }
   const { token } = useSelector((state) => state.auth)
   const { user } = useSelector((state) => state.profile)
   const dispatch = useDispatch()

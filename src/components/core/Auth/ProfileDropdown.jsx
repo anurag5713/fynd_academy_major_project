@@ -4,8 +4,8 @@ import { VscDashboard, VscSignOut } from "react-icons/vsc";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 
-import useOnClickOutside from "../../../hooks/useOnClickOutside";
 import { logout } from "../../../services/operations/authApi";
+import useOnClickOutside from "../../../hooks/useOnClickOutside";
 
 // ProfileDropdown component
 export default function ProfileDropdown() {
@@ -22,7 +22,7 @@ export default function ProfileDropdown() {
   if (!user) return null;
 
   return (
-    <button className="relative" onClick={() => setOpen(true)}>
+    <button className="relative text-richblack-100 " onClick={() => setOpen(true)}>
       <div className="flex items-center gap-x-1">
         {/* User Profile Image */}
         <img

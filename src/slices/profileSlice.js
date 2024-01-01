@@ -16,8 +16,8 @@ const profileSlice = createSlice({
       state.loading = value.payload
     },
   },
-})
+});
 
-export const { setUser, setLoading } = profileSlice.actions
+export const { setUser, setLoading } = profileSlice.actions;
 
-export default profileSlice.reducer
+export default profileSlice.reducer;

@@ -620,7 +620,7 @@ const EditorPage = () => {
         {/* Input Textarea */}
         <textarea
           id="input"
-          className="inputArea textarea-style"
+          className="inputArea textarea-style "
           placeholder="Enter your input here"
         ></textarea>
       </div>

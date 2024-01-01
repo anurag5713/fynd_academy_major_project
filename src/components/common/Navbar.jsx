@@ -1,11 +1,17 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import HighlightText from "../core/homepage/HighlightText";
+import { useDispatch, useSelector } from "react-redux";
+import ProfileDropdown from "../core/Auth/ProfileDropdown";
+import {logout} from "../../services/operations/authApi"
 
 // Navbar component
 const Navbar = () => {
-  const token = null; 
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const { token } = useSelector((state) => state.auth);
+  const { user } = useSelector((state) => state.profile); 
 
   return (
     <div className="bg-richblack-900 flex h-14 items-center justify-center border-b-[1px] border-b-richblack-600 text-white max-w[100vw]">
@@ -43,6 +49,8 @@ const Navbar = () => {
 
           {/* Show ProfileDropdown if logged in */}
           {token !== null && <ProfileDropdown />}
+          {token !== null && <button  onClick={() => { dispatch(logout(navigate))}} className="rounded-[8px] border border-richblack-700 bg-richblack-800 px-[12px] py-[8px] text-richblack-100">Logout</button>}
+
         </div>
       </div>
     </div>
