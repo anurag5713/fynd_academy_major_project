@@ -1,35 +1,29 @@
-import React, { useEffect, useState } from "react"
-import { useForm } from "react-hook-form"
-import CountryCode from "../../../data/countrycode.json"
-
-// import { apiConnector } from "../../../services/apiConnector"
-// import { contactusEndpoint } from "../../../services/apis"
+import React, { useEffect, useState } from "react";
+import { useForm } from "react-hook-form";
+import CountryCode from "../../../data/countrycode.json";
+import { apiConnector } from "../../../services/apiConnector";
+import { contactusEndpoint } from "../../../services/apis";
 
 const ContactUsForm = () => {
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(false);
   const {
     register,
     handleSubmit,
     reset,
     formState: { errors, isSubmitSuccessful },
-  } = useForm()
+  } = useForm();
 
   const submitContactForm = async (data) => {
-    // console.log("Form Data - ", data)
     try {
-      setLoading(true)
-      const res = await apiConnector(
-        "POST",
-        contactusEndpoint.CONTACT_US_API,
-        data
-      )
-      // console.log("Email Res - ", res)
-      setLoading(false)
+      setLoading(true);
+      const res = await apiConnector("POST", contactusEndpoint.CONTACT_US_API, data);
+      console.log("Email Res - ", res);
+      setLoading(false);
     } catch (error) {
-      console.log("ERROR MESSAGE - ", error.message)
-      setLoading(false)
+      console.log("ERROR MESSAGE - ", error.message);
+      setLoading(false);
     }
-  }
+  };
 
   useEffect(() => {
     if (isSubmitSuccessful) {
@@ -39,15 +33,16 @@ const ContactUsForm = () => {
         lastname: "",
         message: "",
         phoneNo: "",
-      })
+      });
     }
-  }, [reset, isSubmitSuccessful])
+  }, [reset, isSubmitSuccessful]);
 
   return (
     <form
       className="flex flex-col gap-7"
       onSubmit={handleSubmit(submitContactForm)}
     >
+      {/* First and Last Name Fields */}
       <div className="flex flex-col gap-5 lg:flex-row">
         <div className="flex flex-col gap-2 lg:w-[48%]">
           <label htmlFor="firstname" className="lable-style">
@@ -82,6 +77,7 @@ const ContactUsForm = () => {
         </div>
       </div>
 
+      {/* Email Field */}
       <div className="flex flex-col gap-2">
         <label htmlFor="email" className="lable-style">
           Email Address
@@ -101,13 +97,14 @@ const ContactUsForm = () => {
         )}
       </div>
 
+      {/* Phone Number Field */}
       <div className="flex flex-col gap-2">
         <label htmlFor="phonenumber" className="lable-style">
           Phone Number
         </label>
-
         <div className="flex gap-5">
           <div className="flex w-[81px] flex-col gap-2">
+            {/* Country Code Dropdown */}
             <select
               type="text"
               name="firstname"
@@ -116,16 +113,15 @@ const ContactUsForm = () => {
               className="form-style"
               {...register("countrycode", { required: true })}
             >
-              {CountryCode.map((ele, i) => {
-                return (
-                  <option key={i} value={ele.code}>
-                    {ele.code} -{ele.country}
-                  </option>
-                )
-              })}
+              {CountryCode.map((ele, i) => (
+                <option key={i} value={ele.code}>
+                  {ele.code} - {ele.country}
+                </option>
+              ))}
             </select>
           </div>
           <div className="flex w-[calc(100%-90px)] flex-col gap-2">
+            {/* Phone Number Input */}
             <input
               type="number"
               name="phonenumber"
@@ -150,6 +146,7 @@ const ContactUsForm = () => {
         )}
       </div>
 
+      {/* Message Field */}
       <div className="flex flex-col gap-2">
         <label htmlFor="message" className="lable-style">
           Message
@@ -170,19 +167,19 @@ const ContactUsForm = () => {
         )}
       </div>
 
+      {/* Submit Button */}
       <button
         disabled={loading}
         type="submit"
-        className={`rounded-md bg-yellow-50 px-6 py-3 text-center text-[13px] font-bold text-black shadow-[2px_2px_0px_0px_rgba(255,255,255,0.18)] 
-         ${
-           !loading &&
-           "transition-all duration-200 hover:scale-95 hover:shadow-none"
-         }  disabled:bg-richblack-500 sm:text-[16px] `}
+        className={`rounded-md bg-yellow-50 px-6 py-3 text-center text-[13px] font-bold text-black shadow-[2px_2px_0px_0px_rgba(255,255,255,0.18)] ${
+          !loading &&
+          "transition-all duration-200 hover:scale-95 hover:shadow-none"
+        }  disabled:bg-richblack-500 sm:text-[16px] `}
       >
         Send Message
       </button>
     </form>
-  )
-}
+  );
+};
 
-export default ContactUsForm
+export default ContactUsForm;

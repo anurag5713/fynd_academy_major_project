@@ -4,8 +4,8 @@ import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai"
 import { useSelector } from "react-redux"
 import { useNavigate } from "react-router-dom"
 import IconBtn from "../../../common/Iconbtn"
+import { changePassword } from "../../../../services/operations/settingApi"
 
-//import { changePassword } from "../../../../services/operations/SettingsAPI"
 
 
 export default function UpdatePassword() {

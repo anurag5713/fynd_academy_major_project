@@ -2,17 +2,17 @@ import { useEffect, useRef, useState } from "react"
 import { FiUpload } from "react-icons/fi"
 import { useDispatch, useSelector } from "react-redux"
 import IconBtn from "../../../common/Iconbtn"
-//import { updateDisplayPicture } from "../../../../services/operations/SettingsAPI"
+import { updateDisplayPicture } from "../../../../services/operations/settingApi"
 
 
 export default function ChangeProfilePicture() {
-  const user={
-    firstName:"anurag",
-    lastName:"yadav",
+  // const user={
+  //   firstName:"anurag",
+  //   lastName:"yadav",
 
-  }
-  // const { token } = useSelector((state) => state.auth)
-  // const { user } = useSelector((state) => state.profile)
+  // }
+  const { token } = useSelector((state) => state.auth)
+  const { user } = useSelector((state) => state.profile)
   const dispatch = useDispatch()
 
   const [loading, setLoading] = useState(false)

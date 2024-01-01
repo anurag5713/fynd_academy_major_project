@@ -1,38 +1,37 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { AiOutlineEye,AiOutlineEyeInvisible } from 'react-icons/ai';
+import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
 import { BiArrowBack } from 'react-icons/bi';
 
-
 const UpdatePassword = () => {
-  const navigate=useNavigate();
-  const dispatch=useDispatch();
-  const location=useLocation();
-  const {loading}=useSelector( (state)=>state.auth)
-  const [showPassword,setShowPassword]=useState(false);
-  const[showConfirmPassword,setShowConfirmPassword]=useState(false);
-  const[formData,setFormData]=useState({
-    password:"",
-    confirmPassword:"",
-  })
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const location = useLocation();
+  const { loading } = useSelector((state) => state.auth);
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const [formData, setFormData] = useState({
+    password: "",
+    confirmPassword: "",
+  });
 
-  const {password,confirmPassword}=formData;
+  const { password, confirmPassword } = formData;
 
   const handleOnChange = (e) => {
     setFormData((prevData) => ({
       ...prevData,
       [e.target.name]: e.target.value,
-    }))
-  }
+    }));
+  };
 
-  const handleOnSubmit=(e)=>{
+  const handleOnSubmit = (e) => {
     e.preventDefault();
-    const token=location.pathname.split("/").at(-1);
-    dispatch(resetPassword(password,confirmPassword,token,navigate))
+    const token = location.pathname.split("/").at(-1);
+    dispatch(resetPassword(password, confirmPassword, token, navigate));
+  };
 
-  }
   return (
     <div className="grid min-h-[calc(100vh-3.5rem)] place-items-center">
       {loading ? (
@@ -40,10 +39,10 @@ const UpdatePassword = () => {
       ) : (
         <div className="max-w-[500px] p-4 lg:p-8">
           <h1 className="text-[1.875rem] font-semibold leading-[2.375rem] text-richblack-5">
-            Choose new password
+            Choose a new password
           </h1>
           <p className="my-4 text-[1.125rem] leading-[1.625rem] text-richblack-100">
-            Almost done. Enter your new password and youre all set.
+            Almost done. Enter your new password, and you're all set.
           </p>
           <form onSubmit={handleOnSubmit}>
             <label className="relative">
@@ -112,7 +111,7 @@ const UpdatePassword = () => {
         </div>
       )}
     </div>
-  )
-}
+  );
+};
 
-export default UpdatePassword
+export default UpdatePassword;

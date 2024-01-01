@@ -1,9 +1,8 @@
-
 import React, { useState } from "react";
 import { v4 as uuidV4 } from "uuid";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
-import logo from "../assets/logo.png"
+import logo from "../assets/logo.png";
 
 const EditorJoin = () => {
   const navigate = useNavigate();
@@ -22,7 +21,7 @@ const EditorJoin = () => {
       toast.error("ROOM ID & username are required");
       return;
     }
-    //Redirect
+    // Redirect to the editor with room ID and username
     navigate(`/editor/${roomId}`, {
       state: {
         username,
@@ -37,18 +36,14 @@ const EditorJoin = () => {
   };
 
   return (
-    <div className="homePageWrapper">
+    <div className="homePageWrapper bg-richblack-800">
       <div className="formWrapper">
-        <img
-          className="homePageLogo"
-          src={logo}
-          alt="CodeMate"
-        ></img>
+        <img className="homePageLogo" src={logo} alt="CodeMate" />
         <h4 className="mainLabel">Paste invitation ROOM ID</h4>
         <div className="inputGroup">
           <input
             type="text"
-            className="inputBox"
+            className="inputBox text-black"
             placeholder="ROOM ID"
             onChange={(e) => setRoomId(e.target.value)}
             value={roomId}
@@ -56,7 +51,7 @@ const EditorJoin = () => {
           />
           <input
             type="text"
-            className="inputBox"
+            className="inputBox text-black"
             placeholder="USERNAME"
             onChange={(e) => setUsername(e.target.value)}
             value={username}
@@ -66,7 +61,7 @@ const EditorJoin = () => {
             Join
           </button>
           <span className="createInfo">
-            If you don't have an invite then create &nbsp;
+            If you don't have an invite, then create &nbsp;
             <a onClick={createNewRoom} href="" className="createNewBtn">
               new room
             </a>

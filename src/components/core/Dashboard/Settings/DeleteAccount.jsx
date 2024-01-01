@@ -1,8 +1,7 @@
 import { FiTrash2 } from "react-icons/fi"
 import { useDispatch, useSelector } from "react-redux"
 import { useNavigate } from "react-router-dom"
-
-//import { deleteProfile } from "../../../../services/operations/SettingsAPI"
+import { deleteProfile } from "../../../../services/operations/settingApi"
 
 export default function DeleteAccount() {
   const { token } = useSelector((state) => state.auth)
@@ -29,10 +28,6 @@ export default function DeleteAccount() {
           </h2>
           <div className="w-3/5 text-pink-25">
             <p>Would you like to delete account?</p>
-            <p>
-              This account may contain Paid Courses. Deleting your account is
-              permanent and will remove all the contain associated with it.
-            </p>
           </div>
           <button
             type="button"

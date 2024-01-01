@@ -20,12 +20,12 @@ const Home = () => {
             <HighlightText text={"CodeMate"} />
           </div>
           <div className="-mt-8 w-[90%] text-center text-2xl font-bold text-richblack-300">
-            A real time collabrative code editor
+            A real-time collaborative code editor
           </div>
 
           <div className="-mt-3 w-[90%] text-center text-lg font-bold text-richblack-300">
-            Simmplify teamwork boost productivity and code seamlessly together,
-            Start your collbrative coding journey today.
+            Simplify teamwork, boost productivity, and code seamlessly together.
+            Start your collaborative coding journey today.
           </div>
           <Button linkto={"/login"}>Start Now</Button>
 
@@ -57,16 +57,16 @@ const Home = () => {
         className="w-[100%]  z-50 absolute top-[765px]"
       />
       <div className="mt-32 relative ">
-      <img
-        src={shape}
-        alt="shape image"
-        className="w-[100%]  z-50 absolute rotate-180 top-[610px] "/>
+        <img
+          src={shape}
+          alt="shape image"
+          className="w-[100%]  z-50 absolute rotate-180 top-[610px] "
+        />
         <Features />
       </div>
       <div className="mt-40">
         <CodeSection />
       </div>
-      
     </div>
   );
 };

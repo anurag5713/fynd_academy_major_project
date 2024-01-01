@@ -6,8 +6,6 @@ import ConfirmationModal from "../../common/ConfirmationModal"
 
 import SidebarLink from "./SidebarLink"
 
-//import { ACCOUNT_TYPE } from "../utils/constants"
-
 export const sidebarLinks = [
   {
     id: 1,
@@ -21,22 +19,22 @@ export const sidebarLinks = [
 
 
 export default function Sidebar() {
-  // const { user, loading: profileLoading } = useSelector(
-  //   (state) => state.profile
-  // )
-  // const { loading: authLoading } = useSelector((state) => state.auth)
+  const { user, loading: profileLoading } = useSelector(
+    (state) => state.profile
+  )
+  const { loading: authLoading } = useSelector((state) => state.auth)
   const dispatch = useDispatch()
   const navigate = useNavigate()
   // to keep track of confirmation modal
   const [confirmationModal, setConfirmationModal] = useState(null)
 
-  // if (profileLoading || authLoading) {
-  //   return (
-  //     <div className="grid h-[calc(100vh-3.5rem)] min-w-[220px] items-center border-r-[1px] border-r-richblack-700 bg-richblack-800">
-  //       <div className="spinner"></div>
-  //     </div>
-  //   )
-  // }
+  if (profileLoading || authLoading) {
+    return (
+      <div className="grid h-[calc(100vh-3.5rem)] min-w-[220px] items-center border-r-[1px] border-r-richblack-700 bg-richblack-800">
+        <div className="spinner"></div>
+      </div>
+    )
+  }
 
   return (
     <>

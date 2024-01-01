@@ -2,20 +2,20 @@ import { useForm } from "react-hook-form"
 import { useDispatch, useSelector } from "react-redux"
 import { useNavigate } from "react-router-dom"
 import IconBtn from "../../../common/Iconbtn"
+import { updateProfile } from "../../../../services/operations/settingApi"
 
-//import { updateProfile } from "../../../../services/operations/SettingsAPI"
 
 
 const genders = ["Male", "Female", "Non-Binary", "Prefer not to say", "Other"]
 
 export default function EditProfile() {
-  const user={
-    firstName:"anurag",
-    lastName:"yadav",
+  // const user={
+  //   firstName:"anurag",
+  //   lastName:"yadav",
 
-  }
-  // const { user } = useSelector((state) => state.profile)
-  // const { token } = useSelector((state) => state.auth)
+  // }
+  const { user } = useSelector((state) => state.profile)
+  const { token } = useSelector((state) => state.auth)
   const navigate = useNavigate()
   const dispatch = useDispatch()
 

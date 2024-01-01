@@ -1,4 +1,4 @@
-import signupImg from "../assets/computer.jpg"
+import signupImg from "../assets/computer.png"
 import Template from "../components/core/Auth/Template"
 
 function Signup() {

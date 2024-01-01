@@ -1,4 +1,4 @@
-import loginImg from "../assets/computer.jpg"
+import loginImg from "../assets/computer.png"
 import Template from "../components/core/Auth/Template"
 
 function Login() {
