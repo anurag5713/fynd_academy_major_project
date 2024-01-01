@@ -169,15 +169,13 @@ const EditorPage = () => {
     axios
       .request(options)
       .then(function (response) {
+        console.log("response of code compilation:",response);
         let message = response.data.Result;
         console.log("message of output:", message);
         if (message === null) {
           message = response.data.Errors;
         }
         console.log("message of output:", message);
-
-        // Chatgpt
-        setMessages((prevMessages) => [...prevMessages, message]);
 
         outputClicked();
         document.getElementById("input").value = message;
