@@ -42,10 +42,10 @@ const Editor = ({ socketRef, roomId }) => {
     }
 
     init();
-  }, []); // This effect runs once on component mount
+  }, [socketRef,roomId]); // This effect runs once on component mount
 
   useEffect(() => {
-    if (socketRef.current) {
+    if (socketRef.current && editorRef.current) {
       // Listen for code changes from the server
       socketRef.current.on(ACTIONS.CODE_CHANGE, ({ code }) => {
         // Check if the received code is different from the current editor value

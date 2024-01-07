@@ -37,10 +37,47 @@ function SignupForm() {
   const handleOnSubmit = (e) => {
     e.preventDefault();
 
+    // emil and password verification using regular expression
+    var mailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    if(!mailPattern.test(email))
+    {
+      toast.error("Not a valid email");
+      return;
+    }
+
+      // Check for at least one uppercase letter
+      var hasUppercase = /[A-Z]/.test(password);
+      if(!hasUppercase)
+      {
+        toast.error("Password should have uppercase");
+        return;
+      }
+      // Check for at least one lowercase letter
+      var hasLowercase = /[a-z]/.test(password);
+      if(!hasLowercase)
+      {
+        toast.error("Password should have lowercase");
+        return;
+      }
+  
+      // Check for at least one special character
+      var hasSpecialChar = /[!@#$%^&*()_+{}\[\]:;<>,.?~\\/-]/.test(password);
+      if(!hasSpecialChar)
+      {
+        toast.error("Password should have special character");
+        return;
+      }
+      if(!password.length >= 8)
+      {
+        toast.error("Password should have atlaest 8 legth");
+        return;
+      }
+
     if (password !== confirmPassword) {
       toast.error("Passwords Do Not Match");
       return;
     }
+    
     const signupData = {
       ...formData,
     };

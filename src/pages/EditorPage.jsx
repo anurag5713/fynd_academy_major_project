@@ -146,7 +146,9 @@ const EditorPage = () => {
   const runCode = () => {
     const lang = document.getElementById("languageOptions").value;
     const input = document.getElementById("input").value;
-    const code = codeRef.current;
+   // const code = editorRef.current ? editorRef.current.getValue() : "";
+   const code = codeRef.current;
+    console.log("code going for compilation: ",code);
 
     toast.loading("Running Code....");
 
